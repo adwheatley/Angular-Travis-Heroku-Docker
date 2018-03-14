@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: myangularapp
+    image: myangularapp
+    networks:
+      - prod-network
+    ports:
+      - '80:80'
+    environment:
+    - PORT=80
+
+networks:
+  prod-network:
+    driver: bridge
